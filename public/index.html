@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f6f1">
+    <meta name="description" content="A simple voice companion for travelling across India.">
+    <title>Travel Sathi — Speak freely</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/translation-theme.css">
+    <script src="/translation-page.js" defer></script>
+    <script src="/app.js" defer></script>
+  </head>
+  <body class="translation-page">
+    <header class="site-header translation-header">
+      <a class="brand" href="/" aria-label="Travel Sathi home">
+        <span class="brand-mark" aria-hidden="true">✳</span>
+        <span>travel<span class="brand-light">sathi</span></span>
+      </a>
+      <nav class="main-nav translation-nav" aria-label="Main navigation">
+        <a class="nav-link" href="/#explore">Explore</a>
+        <a class="nav-link active" href="/translate" aria-current="page">Translation</a>
+        <a class="nav-link" href="/#stories">Stories</a>
+        <a class="nav-link" href="/#events">What's on</a>
+      </nav>
+      <a class="nav-cta" href="/#explore">Find a city <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </header>
+
+    <main>
+      <section class="intro">
+        <div class="translation-hero-image" id="translation-hero-image" aria-hidden="true"></div>
+        <div class="eyebrow"><span class="eyebrow-star" aria-hidden="true">✳</span> A LITTLE CLOSER TO EVERYWHERE</div>
+        <h1>Good conversations<br><em>go everywhere.</em></h1>
+        <p>Find the words, share the moment, and let your phone do the talking.</p>
+        <div class="topbar-note voice-status"><span class="status-dot"></span><span id="api-status">Checking voice setup…</span></div>
+        <div class="translator-hero-caption">
+          <span class="caption-line"></span>
+          <span id="translation-city-label">VARANASI, INDIA</span>
+          <a id="translation-photo-credit" class="hero-photo-credit" href="https://commons.wikimedia.org/" target="_blank" rel="noreferrer">PHOTO: WIKIMEDIA COMMONS</a>
+        </div>
+      </section>
+
+      <section class="translator-card" aria-label="Voice translator">
+        <div class="language-row">
+          <label class="language-picker">
+            <span class="field-label">I'M SPEAKING</span>
+            <span class="select-wrap">
+              <span class="language-icon" aria-hidden="true">◉</span>
+              <select id="source-language" aria-label="Language you are speaking">
+                <option value="en-IN" data-stt="true">English (India)</option>
+                <option value="hi-IN" data-stt="true">Hindi</option>
+                <option value="ta-IN" data-stt="true">Tamil</option>
+                <option value="te-IN" data-stt="true">Telugu</option>
+                <option value="bn-IN" data-stt="true">Bengali</option>
+                <option value="mr-IN" data-stt="true">Marathi</option>
+                <option value="gu-IN" data-stt="true">Gujarati</option>
+                <option value="kn-IN" data-stt="true">Kannada</option>
+                <option value="ml-IN" data-stt="true">Malayalam</option>
+                <option value="pa-IN" data-stt="true">Punjabi</option>
+                <option value="ur-IN">Urdu (translation only)</option>
+                <option value="or-IN">Odia (translation only)</option>
+                <option value="as-IN">Assamese (translation only)</option>
+                <option value="doi-IN">Dogri (translation only)</option>
+                <option value="ks-IN">Kashmiri (translation only)</option>
+                <option value="mai-IN">Maithili (translation only)</option>
+                <option value="mni-IN">Manipuri (translation only)</option>
+                <option value="sa-IN">Sanskrit (translation only)</option>
+                <option value="sat-IN">Santali (translation only)</option>
+                <option value="sd-IN">Sindhi (translation only)</option>
+              </select>
+              <span class="chevron" aria-hidden="true">⌄</span>
+            </span>
+          </label>
+
+          <button id="swap-languages" class="swap-mark" type="button" aria-label="Swap languages" title="Swap languages">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M5 8h13m0 0-3.5-3.5M18 8l-3.5 3.5M19 16H6m0 0 3.5-3.5M6 16l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <label class="language-picker">
+            <span class="field-label">THEY SPEAK</span>
+            <span class="select-wrap">
+              <span class="language-icon target-icon" aria-hidden="true">◉</span>
+              <select id="target-language" aria-label="Language the other person speaks">
+                <option value="hi-IN" data-tts="true">Hindi</option>
+                <option value="en-IN" data-tts="true">English (India)</option>
+                <option value="ta-IN" data-tts="true">Tamil</option>
+                <option value="te-IN" data-tts="true">Telugu</option>
+                <option value="bn-IN" data-tts="true">Bengali</option>
+                <option value="mr-IN" data-tts="true">Marathi</option>
+                <option value="gu-IN" data-tts="true">Gujarati</option>
+                <option value="kn-IN" data-tts="true">Kannada</option>
+                <option value="ml-IN" data-tts="true">Malayalam</option>
+                <option value="pa-IN" data-tts="true">Punjabi</option>
+                <option value="ur-IN">Urdu (translation only)</option>
+                <option value="or-IN">Odia (translation only)</option>
+                <option value="as-IN">Assamese (translation only)</option>
+                <option value="doi-IN">Dogri (translation only)</option>
+                <option value="ks-IN">Kashmiri (translation only)</option>
+                <option value="mai-IN">Maithili (translation only)</option>
+                <option value="mni-IN">Manipuri (translation only)</option>
+                <option value="sa-IN">Sanskrit (translation only)</option>
+                <option value="sat-IN">Santali (translation only)</option>
+                <option value="sd-IN">Sindhi (translation only)</option>
+              </select>
+              <span class="chevron" aria-hidden="true">⌄</span>
+            </span>
+          </label>
+        </div>
+
+        <div class="conversation">
+          <section class="message-panel">
+            <div class="panel-heading">
+              <span class="panel-step">01</span>
+              <span>YOUR MESSAGE</span>
+              <span class="live-label"><span></span> VOICE</span>
+            </div>
+            <textarea id="transcript" placeholder="Your words will show up here…" aria-label="Recognized speech"></textarea>
+            <div class="panel-footer">
+              <span id="record-hint">Tap the mic and say something</span>
+              <span id="char-count">0</span>
+            </div>
+          </section>
+
+          <section class="message-panel reply-panel">
+            <div class="panel-heading">
+              <span class="panel-step">02</span>
+              <span>THEIR LANGUAGE</span>
+              <span class="manual-tag">EDITABLE</span>
+            </div>
+            <textarea id="translation" placeholder="Add or paste the translation here…" aria-label="Translated message"></textarea>
+            <div class="panel-footer">
+              <span>Translation appears here; you can edit it</span>
+              <span class="sparkle" aria-hidden="true">✳</span>
+            </div>
+          </section>
+        </div>
+
+        <div class="actions">
+          <button id="record-button" class="record-button" type="button" disabled>
+            <span class="mic-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="9" y="3" width="6" height="12" rx="3" stroke="currentColor" stroke-width="1.7"/>
+                <path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3m-3 0h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span id="record-button-label">Start talking</span>
+          </button>
+          <button id="translate-button" class="secondary-button" type="button">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 5h10M9 3v2m3 0c-.5 4-3 7-6 9m1-5c1 2 3 4 5 5m1 6 4-10 4 10m-7-3h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Translate
+          </button>
+          <button id="play-button" class="secondary-button play-button" type="button">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 10v4h3l4 3V7l-4 3H5Zm11-1a4 4 0 0 1 0 6m2-8a7 7 0 0 1 0 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Play translation
+          </button>
+        </div>
+        <p class="privacy-note"><span aria-hidden="true">ⓘ</span> Gnani speech input and playback are available for the 10 supported Indian languages listed without a “translation only” label. Type text for other Indian languages. Audio goes to Gnani; text goes to MyMemory and may be retained under its terms.</p>
+      </section>
+
+      <p id="app-message" class="app-message" role="status" aria-live="polite"></p>
+
+      <section class="how-it-works" aria-label="How it works">
+        <div class="how-title"><span>MADE FOR THE MOMENTS IN BETWEEN</span><span class="tiny-sun" aria-hidden="true">✳</span></div>
+        <div class="steps">
+          <div class="step"><span class="step-icon">01</span><span>Choose your languages</span></div>
+          <span class="step-arrow" aria-hidden="true">→</span>
+          <div class="step"><span class="step-icon">02</span><span>Say what you need</span></div>
+          <span class="step-arrow" aria-hidden="true">→</span>
+          <div class="step"><span class="step-icon">03</span><span>Share the reply aloud</span></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="/" aria-label="Travel Sathi home"><span class="brand-mark" aria-hidden="true">✳</span><span>travel<span class="brand-light">sathi</span></span></a>
+      <span>Go gently. Stay curious.</span>
+      <a href="/">Find your next city <span>Explore ↗</span></a>
+    </footer>
+  </body>
+</html>

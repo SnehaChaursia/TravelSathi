@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f2eb">
+    <meta name="description" content="Find your way into a city: local places, food, experiences, and events.">
+    <title>Travel Sathi — Find your way into the city</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/explore.css">
+    <script src="/explore.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Travel Sathi home">
+        <span class="brand-mark" aria-hidden="true">✳</span>
+        <span>travel<span class="brand-light">sathi</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="#explore">Explore</a>
+        <a class="nav-link" href="/translate">Translation</a>
+        <a class="nav-link" href="#stories">Stories</a>
+        <a class="nav-link" href="#events">What's on</a>
+      </nav>
+      <a class="nav-cta" href="#explore">Find a city <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </header>
+
+    <main>
+      <section class="hero" id="explore" aria-labelledby="hero-title">
+        <div class="hero-image" aria-hidden="true"></div>
+        <div class="hero-grain" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-star">✳</span> A LITTLE CLOSER TO EVERYWHERE</p>
+          <h1 id="hero-title">Get lost.<br><em>Find more.</em></h1>
+          <p class="hero-description">The best way into a place is through its people, plates, and little unexpected corners.</p>
+          <form id="city-search" class="search-bar">
+            <label class="sr-only" for="city-input">Search any city</label>
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="city-input" name="city" type="search" value="Varanasi" placeholder="Where do you want to wander?" autocomplete="off" maxlength="100" required role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" aria-controls="city-suggestions">
+            <button type="submit">Explore <span aria-hidden="true">→</span></button>
+            <div id="city-suggestions" class="city-suggestions" role="listbox" aria-label="City suggestions" hidden></div>
+          </form>
+          <div class="quick-picks">
+            <span>ON OUR RADAR</span>
+            <button type="button" data-city="Varanasi">Varanasi</button>
+            <button type="button" data-city="Jaipur">Jaipur</button>
+            <button type="button" data-city="Kochi">Kochi</button>
+          </div>
+        </div>
+        <div class="hero-caption">
+          <span class="caption-line"></span>
+          <span>VARANASI, INDIA</span>
+          <span class="caption-note">A city that moves to its own rhythm</span>
+          <a id="hero-photo-credit" class="hero-photo-credit" href="https://commons.wikimedia.org/" target="_blank" rel="noreferrer">PHOTO: WIKIMEDIA COMMONS</a>
+        </div>
+        <div class="hero-index"><span>01</span> / 04</div>
+        <a class="scroll-cue" href="#city-guide"><span></span> SCROLL TO WANDER</a>
+        <span class="hero-stamp" aria-hidden="true">GO<br>YOUR<br>OWN<br>WAY</span>
+      </section>
+
+      <section class="city-guide section-wrap" id="city-guide" aria-live="polite">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow dark-eyebrow"><span class="eyebrow-star">✳</span> YOUR NEXT GOOD STORY</p>
+            <h2>Somewhere called <span id="city-heading">Varanasi</span></h2>
+          </div>
+          <p class="section-intro" id="city-region">A few local favorites, just around the corner.</p>
+        </div>
+        <p id="explore-status" class="explore-status" role="status">Finding the city's little wonders…</p>
+
+        <div class="guide-grid">
+          <section class="guide-column places-column">
+            <div class="column-heading"><span>01 / GO SEE</span><a id="places-map-link" href="#" target="_blank" rel="noreferrer">OPEN THE MAP ↗</a></div>
+            <div id="places-grid" class="places-grid"></div>
+          </section>
+          <section class="guide-column food-column">
+            <div class="column-heading"><span>02 / EAT SOMETHING</span><span class="hand-note">always say yes</span></div>
+            <div id="food-list" class="food-list"></div>
+          </section>
+        </div>
+        <p id="source-note" class="source-note">City places from public map data. Story histories link to Wikipedia; photos link to Wikimedia Commons.</p>
+
+      </section>
+
+      <section class="stories-section" id="stories">
+        <div class="stories-topline">
+          <p class="eyebrow"><span class="eyebrow-star">✳</span> NOTES FROM THE ROAD</p>
+          <a class="story-login" href="#stories" aria-label="Sign in to share a story">SHARE YOUR STORY <span>↗</span></a>
+        </div>
+        <div class="stories-layout">
+          <div class="stories-title">
+            <h2>Famous places,<br>their <em>stories.</em></h2>
+            <p>Discover the history and local character behind the landmarks that make each city memorable.</p>
+            <span id="stories-count" class="stories-count">LOADING PLACE STORIES</span>
+          </div>
+          <div id="story-cards" class="story-cards" aria-live="polite"></div>
+        </div>
+        <p id="story-message" class="story-message" role="status" hidden></p>
+      </section>
+
+      <section class="events-section section-wrap" id="events">
+        <div class="section-heading events-heading">
+          <div>
+            <p class="eyebrow dark-eyebrow"><span class="eyebrow-star">✳</span> SAVE A DATE</p>
+            <h2>Good things <span>coming up.</span></h2>
+          </div>
+          <a id="events-search-link" class="text-link" href="#" target="_blank" rel="noreferrer">FIND WHAT'S ON <span>↗</span></a>
+        </div>
+        <div class="events-card">
+          <div class="event-date"><span>YOUR</span><strong>+</strong><span>NEXT</span></div>
+          <div class="event-detail">
+            <span class="event-tag">LIVE CITY LISTINGS</span>
+            <h3>Make room for a little serendipity.</h3>
+            <p>Markets, music, festivals, and pop-ups change every week. Browse live listings for <span id="event-city">Varanasi</span> before you go.</p>
+          </div>
+          <a id="events-card-link" class="event-arrow" href="#" target="_blank" rel="noreferrer" aria-label="Search upcoming events">↗</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="/"><span class="brand-mark" aria-hidden="true">✳</span><span>travel<span class="brand-light">sathi</span></span></a>
+      <span>Go gently. Stay curious.</span>
+      <a href="/translate">Need a hand with the language? <span>Translate ↗</span></a>
+    </footer>
+  </body>
+</html>
